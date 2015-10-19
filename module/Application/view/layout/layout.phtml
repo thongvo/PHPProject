@@ -1,0 +1,92 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+        <?php echo $this->headTitle( $this->translate('School iBoard'))->setSeparator(' - ')->setAutoEscape(false)?>
+
+        <?php
+        
+echo $this->headMeta ()->appendName ( 'viewport', 'width=device-width, initial-scale=1.0' )->appendHttpEquiv ( 'X-UA-Compatible', 'IE=edge' )?>
+
+        <!-- Le styles -->
+        <?php
+        
+echo $this->headLink ( array (
+          'rel' => 'shortcut icon',
+          'type' => 'image/vnd.microsoft.icon',
+          'href' => $this->basePath () . '/img/favicon.jpg' 
+        ) )->prependStylesheet ( $this->basePath () . '/css/style.css' )->prependStylesheet ( $this->basePath () . '/css/nexus.css' )->prependStylesheet ( $this->basePath () . '/css/animate.css' )->prependStylesheet ( $this->basePath () . '/css/font-awesome.css' )->prependStylesheet ( $this->basePath () . '/css/responsive.css' )->prependStylesheet ( $this->basePath () . '/css/custom.css' )->prependStylesheet ( $this->basePath () . '/css/bootstrap-theme.min.css' )->prependStylesheet ( $this->basePath () . '/css/bootstrap.min.css' )?>
+
+        <!-- Scripts -->
+        <?php
+        
+echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min.js' )->prependFile ( $this->basePath () . '/js/jquery.min.js' )->prependFile ( $this->basePath () . '/js/respond.min.js', 'text/javascript', array (
+          'conditional' => 'lt IE 9' 
+        ) )->prependFile ( $this->basePath () . '/js/html5shiv.js', 'text/javascript', array (
+          'conditional' => 'lt IE 9' 
+        ) );
+        ?>
+		<!-- Favicon -->
+<link href="favicon.html" rel="shortcut icon">
+
+<!-- Google Fonts-->
+<link href="http://fonts.googleapis.com/css?family=Lato:400,300"
+	rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"
+	rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img
+					src="<?php echo $this->basePath('img/Dai-hoc-fpt.jpg') ?>"
+					alt="Zend Framework 2" />&nbsp;<?php echo $this->translate('iBoard') ?></a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<div id="hornav" class="pull-right visible-lg">
+					<ul class="nav navbar-nav">
+						<li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+						<li><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+
+		</div>
+
+	</nav>
+
+	<div class="container">
+            <?php echo $this->content; ?>
+            
+            <hr>
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div id="copyright" class="col-md-8">
+							<p>Copyright &copy; 2015 - Thong Vo. All Rights Reserved</p>
+						</div>
+						<div id="footermenu" class="col-md-4">
+							<ul class="list-unstyled list-inline pull-right">
+								<li><a href="http://framework.zend.com/manual/current/en/index.html" target="_blank">Zend Framework 2</a></li>
+								<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- /container -->
+        <?php echo $this->inlineScript()?>
+    </body>
+</html>
