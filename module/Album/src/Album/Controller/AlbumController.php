@@ -28,7 +28,7 @@ class AlbumController extends AbstractActionController {
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
     $album->exchangeArray ( $form->getData () );
-    $this->getAlbumTable ()->saveAlbum ( $album );
+    $this->getAlbumTable ()->saveDepartment ( $album );
     // Redirect to list of albums
     return $this->redirect ()->toRoute ( 'album' );
    }
@@ -63,7 +63,7 @@ class AlbumController extends AbstractActionController {
    $form->setInputFilter ( $album->getInputFilter () );
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
-    $this->getAlbumTable ()->saveAlbum ( $album );
+    $this->getAlbumTable ()->saveDepartment ( $album );
     // Redirect to list of albums
     return $this->redirect ()->toRoute ( 'album' );
    }

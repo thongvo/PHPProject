@@ -61,6 +61,10 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 						 $url = $this->url('album');
 						 echo "<li><a href='$url'>Album</a></li>";
 						}
+						if (!empty($user)){
+						 $url = $this->url('department');
+						 echo "<li><a href='$url'>Department</a></li>";
+						}
 						?>
 						
 						<?php $user = $this->identity();
