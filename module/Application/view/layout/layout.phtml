@@ -54,26 +54,26 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 			<div class="collapse navbar-collapse">
 				<div id="hornav" class="pull-right visible-lg">
 					<ul class="nav navbar-nav">
-						<li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+						<li><a href="<?php echo $this->url('home') ?>"><span><i class="fa fa-home fa-lg"></i></span> <?php echo $this->translate('Home') ?></a></li>
 						
 						<?php $user = $this->identity();
-						if (!empty($user)){
-						 $url = $this->url('album');
-						 echo "<li><a href='$url'>Album</a></li>";
-						}
+// 						if (!empty($user)){
+// 						 $url = $this->url('album');
+// 						 echo "<li><a href='$url'>Album</a></li>";
+// 						}
 						if (!empty($user)){
 						 $url = $this->url('department');
-						 echo "<li><a href='$url'>Department</a></li>";
+						 echo "<li><a href='$url'><span><i class=\"fa fa-institution fa-lg\"></i></span> Department</a></li>";
 						}
 						?>
 						
 						<?php $user = $this->identity();
 						if (!empty($user)){
 						 $url = $this->url('login/process', array('action'=>'logout'));
-						 echo "<li><a href='$url'>Welcome $user</a></li>";
+						 echo "<li><a href='$url'><span><i class=\"fa fa-sign-in fa-lg\"></i></span> $user</a></li>";
 						}else{
 						 $url = $this->url('login');
-						 echo "<li><a href='$url'>Login</a></li>";
+						 echo "<li><a href='$url'><span><i class=\"fa fa-sign-in fa-lg\"></i></span> Login</a></li>";
 						}
 						?>						
 					</ul>
