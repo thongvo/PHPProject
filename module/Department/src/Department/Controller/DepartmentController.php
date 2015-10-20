@@ -21,6 +21,8 @@ class DepartmentController extends AbstractActionController {
   $form = new DepartmentForm ();
   $form->get ( 'submit' )->setValue ( 'Add' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-primary' );
+
+  
   $request = $this->getRequest ();
   if ($request->isPost ()) {
    $department = new Department ();
@@ -91,7 +93,6 @@ class DepartmentController extends AbstractActionController {
    // Redirect to list of albums
    return $this->redirect ()->toRoute ( 'department' );
   }
-  
   
   return array (
     'id' => $deptCode,

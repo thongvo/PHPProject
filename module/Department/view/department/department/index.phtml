@@ -5,8 +5,8 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p>
-	<a href="<?php echo $this->url('department', array('action'=>'add'));?>">Add
-		new department</a>
+	<a href="<?php echo $this->url('department', array('action'=>'add'));?>" class="btn btn-primary">
+	<span><i class="fa fa-plus-circle"></i></span> Add new department</a>
 </p>
 <table class="table">
 	<tr>
@@ -29,14 +29,14 @@ echo $this->url('department', array(
         'action' => 'edit',
         'id' => $department->deptCode
     ));
-    ?>">Edit</a> <a
+    ?>" class="btn btn-info"><span><i class="fa fa-edit"></i></span> Edit</a> <a
 			href="<?php
     
 echo $this->url('department', array(
         'action' => 'delete',
         'id' => $department->deptCode
     ));
-    ?>">Delete</a></td>
+    ?>" class="btn btn-danger"><span><i class="fa fa-minus-circle"></i></span> Delete</a></td>
 	</tr>
 <?php endforeach; ?>
 </table>
