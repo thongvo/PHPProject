@@ -98,11 +98,19 @@ class AuthController extends AbstractActionController
                     }
                     $this->getAuthService()->setStorage($this->getSessionStorage());
                     $this->getAuthService()->getStorage()->write($request->getPost('username'));
+                    return $this->redirect()->toRoute('home', array(
+                      'controller' => 'Index',
+                      'action'     => 'index'
+                    ));
                 }
             }
         }
+        
+     //   var_dump($this->identity())
 
         return $this->redirect()->toRoute($redirect);
+        
+        
     }
 
     public function logoutAction()

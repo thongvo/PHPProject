@@ -48,13 +48,30 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 				</button>
 				<a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img
 					src="<?php echo $this->basePath('img/Dai-hoc-fpt.jpg') ?>"
-					alt="Zend Framework 2" />&nbsp;<?php echo $this->translate('iBoard') ?></a>
+					alt="Zend Framework 2" />&nbsp;<?php echo $this->translate('iBoard') ?></a>					
 			</div>
+			
 			<div class="collapse navbar-collapse">
 				<div id="hornav" class="pull-right visible-lg">
 					<ul class="nav navbar-nav">
 						<li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-						<li><a href="<?php echo $this->url('album') ?>"><?php echo $this->translate('Album') ?></a></li>
+						
+						<?php $user = $this->identity();
+						if (!empty($user)){
+						 $url = $this->url('album');
+						 echo "<li><a href='$url'>Album</a></li>";
+						}
+						?>
+						
+						<?php $user = $this->identity();
+						if (!empty($user)){
+						 $url = $this->url('login/process', array('action'=>'logout'));
+						 echo "<li><a href='$url'>Welcome $user</a></li>";
+						}else{
+						 $url = $this->url('login');
+						 echo "<li><a href='$url'>Login</a></li>";
+						}
+						?>						
 					</ul>
 				</div>
 				<!--/.nav-collapse -->

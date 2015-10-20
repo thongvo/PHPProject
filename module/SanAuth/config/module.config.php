@@ -71,4 +71,9 @@ return array(
             'SanAuth' => __DIR__ . '/../view',
         ),
     ),
+  'service_manager' => array(
+    'aliases' => array(
+      'Zend\Authentication\AuthenticationService' => 'AuthService',
+    ),
+  ),
 );
