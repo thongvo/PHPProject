@@ -1,0 +1,43 @@
+<h1>Index</h1>
+<?php
+$title = 'My departments';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+	<a href="<?php echo $this->url('department', array('action'=>'add'));?>">Add
+		new department</a>
+</p>
+<table class="table">
+	<tr>
+		<th>Department Code</th>
+		<th>Department Name</th>
+		<th>Department Office</th>
+		<th>Department Phone</th>
+		<th>&nbsp;</th>
+	</tr>
+<?php foreach ($departments as $department) : ?>
+<tr>
+		<td><?php echo $this->escapeHtml($department->deptCode);?></td>
+		<td><?php echo $this->escapeHtml($department->deptName);?></td>
+		<td><?php echo $this->escapeHtml($department->deptOffice);?></td>
+		<td><?php echo $this->escapeHtml($department->deptPhone);?></td>
+		<td><a
+			href="<?php
+    
+echo $this->url('department', array(
+        'action' => 'edit',
+        'id' => $department->deptCode
+    ));
+    ?>">Edit</a> <a
+			href="<?php
+    
+echo $this->url('department', array(
+        'action' => 'delete',
+        'id' => $department->deptCode
+    ));
+    ?>">Delete</a></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+
