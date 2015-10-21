@@ -70,7 +70,11 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 						<?php $user = $this->identity();
 						if (!empty($user)){
 						 $url = $this->url('login/process', array('action'=>'logout'));
-						 echo "<li><a href='$url'><span><i class=\"fa fa-sign-in fa-lg\"></i></span> $user</a></li>";
+						 echo "<li><span>Welcome $user</span>
+							<ul>
+								<li><a href='$url'><i class=\"fa fa-sign-out fa-lg\"></i> Sign out</a></li>
+							</ul>
+						</li>";
 						}else{
 						 $url = $this->url('login');
 						 echo "<li><a href='$url'><span><i class=\"fa fa-sign-in fa-lg\"></i></span> Login</a></li>";
