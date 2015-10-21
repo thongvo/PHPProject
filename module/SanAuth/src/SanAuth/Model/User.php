@@ -32,9 +32,9 @@ class User extends Form {
     'name' => 'submit',
     'type' => 'Submit',
     'attributes' => array (
-      'value' => 'Go',
+      'value' => 'Login',
       'id' => 'submitbutton',
-      'class' => 'btn btn-default',
+      'class' => 'btn btn-primary',
     )
   ) );
  }

@@ -48,7 +48,7 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 				</button>
 				<a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img
 					src="<?php echo $this->basePath('img/Dai-hoc-fpt.jpg') ?>"
-					alt="Zend Framework 2" />&nbsp;<?php echo $this->translate('iBoard') ?></a>					
+					alt="Zend Framework 2" />&nbsp;<span><i class="fa fa-apple fa-lg"></i></span> <?php echo $this->translate('iBoard') ?></a>					
 			</div>
 			
 			<div class="collapse navbar-collapse">
@@ -62,8 +62,15 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 // 						 echo "<li><a href='$url'>Album</a></li>";
 // 						}
 						if (!empty($user)){
-						 $url = $this->url('department');
-						 echo "<li><a href='$url'><span><i class=\"fa fa-institution fa-lg\"></i></span> Department</a></li>";
+// 						 $url = $this->url('department');
+						 echo "<li><span><i class=\"fa fa-wrench fa-lg\"></i> Manage</span>
+						           <ul>
+						              <li><a href='department'><i class=\"fa fa-institution fa-lg\"></i> Departments</a></li>
+						              <li><a href='department'><i class=\"fa fa-graduation-cap fa-lg\"></i> Students</a></li>
+                                      <li><a href='department'><i class=\"fa fa-group fa-lg\"></i>  Instructors</a></li>
+                                      <li><a href='department'><i class=\"fa fa-book fa-lg\"></i>  Subjects</a></li>
+						           </ul>
+						       </li>";
 						}
 						?>
 						
