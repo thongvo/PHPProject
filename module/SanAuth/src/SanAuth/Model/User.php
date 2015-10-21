@@ -15,7 +15,8 @@ class User extends Form {
       'label' => 'Username'
     ),
     'attributes' => array(
-      'class' => 'form-control'
+      'class' => 'form-control',
+      'required' => true,
     ),
   ) );
   $this->add ( array (
@@ -25,7 +26,8 @@ class User extends Form {
       'label' => 'Password'
     ),
     'attributes' => array(
-      'class' => 'form-control'
+      'class' => 'form-control',
+      'required' => true,
     ),
   ) );
   $this->add ( array (
