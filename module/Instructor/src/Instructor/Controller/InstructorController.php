@@ -1,19 +1,19 @@
 <?php
 
-namespace Student\Controller;
+namespace Instructor\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Student\Model\Student;
-use Student\Form\InstructorForm;
+use Instructor\Model\Instructor;
+use Instructor\Form\InstructorForm;
 
-class StudentController extends AbstractActionController {
- protected $studentTable;
+class InstructorController extends AbstractActionController {
+ protected $instructorTable;
  
  public function indexAction() {
  
   return new ViewModel ( array (
-    'students' => $this->getStudentTable ()->fetchAll() 
+    'instructors' => $this->getInstructorTable ()->fetchAll() 
   ) );
  }
  
@@ -25,14 +25,14 @@ class StudentController extends AbstractActionController {
   
   $request = $this->getRequest ();
   if ($request->isPost ()) {
-   $student = new Student ();
-   $form->setInputFilter ( $student->getInputFilter () );
+   $instructor = new Instructor ();
+   $form->setInputFilter ( $instructor->getInputFilter () );
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
-    $student->exchangeArray ( $form->getData () );
-    $this->getStudentTable ()->addStudent ( $student );
+    $instructor->exchangeArray ( $form->getData () );
+    $this->getInstructorTable ()->addInstructor ( $instructor );
     // Redirect to list of departments
-    return $this->redirect ()->toRoute ( 'student' );
+    return $this->redirect ()->toRoute ( 'instructor' );
    }
   }
   return array (
@@ -41,42 +41,42 @@ class StudentController extends AbstractActionController {
  }
  
  public function editAction() {
-  $stuCode = $this->params ()->fromRoute ( 'id', 0 );
+  $insSSN = $this->params ()->fromRoute ( 'id', 0 );
   
   // Get the Album with the specified id. An exception is thrown
   // if it cannot be found, in which case go to the index page.
   try {
-   $student = $this->getStudentTable ()->getInstructor ( $stuCode );
+   $instructor = $this->getInstructorTable ()->getInstructor ( $insSSN );
   } catch ( \Exception $ex ) {
-   return $this->redirect ()->toRoute ( 'student', array (
+   return $this->redirect ()->toRoute ( 'instructor', array (
      'action' => 'index' 
    ) );
   }
   $form = new InstructorForm ();
-  $form->bind ( $student );
+  $form->bind ( $instructor );
   $form->get ( 'submit' )->setAttribute ( 'value', 'Save' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-success' );
   $request = $this->getRequest ();
   if ($request->isPost ()) {
-   $form->setInputFilter ( $student->getInputFilter () );
+   $form->setInputFilter ( $instructor->getInputFilter () );
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
-    $this->getStudentTable ()->saveStudent ( $student );
+    $this->getInstructorTable ()->saveInstructor ( $instructor );
     // Redirect to list of albums
-    return $this->redirect ()->toRoute ( 'student' );
+    return $this->redirect ()->toRoute ( 'instructor' );
    }
   }
   return array (
-    'id' => $stuCode,
+    'id' => $insSSN,
     'form' => $form 
   );
  }
  
  public function deleteAction() {
-  $stuCode = $this->params ()->fromRoute ( 'id', "N/A" );
-  if ($stuCode=="N/A") {
+  $insSSN = $this->params ()->fromRoute ( 'id', "N/A" );
+  if ($insSSN=="N/A") {
    
-   return $this->redirect ()->toRoute ( 'student' );
+   return $this->redirect ()->toRoute ( 'instructor' );
   }
   
   $request = $this->getRequest ();
@@ -87,25 +87,25 @@ class StudentController extends AbstractActionController {
     //$deptCode = $request->getPost ( 'id' );
    // $deptCode = $this->params ()->fromRoute ( 'id', "N/A" );
  
-    $this->getStudentTable ()->deleteStudent ( $stuCode );
+    $this->getInstructorTable ()->deleteInstructor ( $insSSN );
    }
    
    // Redirect to list of albums
-   return $this->redirect ()->toRoute ( 'student' );
+   return $this->redirect ()->toRoute ( 'instructor' );
   }
   
   return array (
-    'id' => $stuCode,
-    'student' => $this->getStudentTable ()->getInstructor ( $stuCode ) 
+    'id' => $insSSN,
+    'instructor' => $this->getInstructorTable ()->getInstructor ( $insSSN ) 
   );
  }
  
- public function getStudentTable() {
-  if (! $this->studentTable) {
+ public function getInstructorTable() {
+  if (! $this->instructorTable) {
    $sm = $this->getServiceLocator ();
-   $this->studentTable = $sm->get ( 'Student\Model\StudentTable' );
+   $this->instructorTable = $sm->get ( 'Instructor\Model\InstructorTable' );
   }
-  return $this->studentTable;
+  return $this->instructorTable;
  }
  
 }

@@ -1,0 +1,45 @@
+<h1>Index</h1>
+<?php
+$title = 'My instructors';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+	<a href="<?php echo $this->url('instructor', array('action'=>'add'));?>" class="btn btn-primary">
+	<span><i class="fa fa-plus-circle"></i></span> Add new instructor</a>
+</p>
+<table class="table">
+	<tr>
+		<th>SSN</th>
+		<th>Name</th>
+		<th>Birthdate</th>
+		<th>Sex</th>
+		<th>Dept Code</th>
+		<th>&nbsp;</th>
+	</tr>
+<?php foreach ($instructors as $instructor) : ?>
+<tr>
+		<td><?php echo $this->escapeHtml($instructor->insSSN);?></td>
+		<td><?php echo $this->escapeHtml($instructor->insName);?></td>
+		<td><?php echo $this->escapeHtml($instructor->insBirthdate);?></td>
+		<td><?php echo $this->escapeHtml($instructor->insSex);?></td>
+		<td><?php echo $this->escapeHtml($instructor->deptCode);?></td>
+		<td><a
+			href="<?php
+    
+echo $this->url('instructor', array(
+        'action' => 'edit',
+        'id' => $instructor->insSSN
+    ));
+    ?>" class="btn btn-info"><span><i class="fa fa-edit"></i></span> Edit</a> <a
+			href="<?php
+    
+echo $this->url('instructor', array(
+        'action' => 'delete',
+        'id' => $instructor->insSSN
+    ));
+    ?>" class="btn btn-danger"><span><i class="fa fa-minus-circle"></i></span> Delete</a></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+

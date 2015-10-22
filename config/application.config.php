@@ -7,6 +7,7 @@ return array(
         'SanAuth',
         'Department',
         'Student',
+        'Instructor',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

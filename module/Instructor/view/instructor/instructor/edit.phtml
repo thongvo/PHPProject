@@ -1,0 +1,26 @@
+<h1>Edit</h1>
+<?php
+$title = 'Edit instructor';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+'instructor',
+array(
+'action' => 'edit',
+'insSSN' => $this->insSSN,
+)
+));
+$form->prepare();
+echo $this->form()->openTag($form);
+//echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('insSSN')) . "<br>";
+echo $this->formRow($form->get('insName')) . "<br>";
+echo $this->formRow($form->get('insBirthdate')) . "<br>";
+echo $this->formRow($form->get('insSex')) . "<br>";
+echo $this->formRow($form->get('deptCode')) . "<br>";
+//echo $this->formSubmit($form->get('submit'));
+echo "<button type=\"submit\" class=\"btn btn-success\"><span><i class=\"fa fa-save\"></i></span> Save</button>";
+echo $this->form()->closeTag();
