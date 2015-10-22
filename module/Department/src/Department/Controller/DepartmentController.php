@@ -43,7 +43,7 @@ class DepartmentController extends AbstractActionController {
  public function editAction() {
   $deptCode = $this->params ()->fromRoute ( 'id', 0 );
   
-  // Get the Album with the specified id. An exception is thrown
+  // Get the Department with the specified id. An exception is thrown
   // if it cannot be found, in which case go to the index page.
   try {
    $department = $this->getDepartmentTable ()->getDepartment ( $deptCode );
@@ -62,7 +62,7 @@ class DepartmentController extends AbstractActionController {
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
     $this->getDepartmentTable ()->saveDepartment ( $department );
-    // Redirect to list of albums
+    // Redirect to list of departments
     return $this->redirect ()->toRoute ( 'department' );
    }
   }
@@ -90,7 +90,7 @@ class DepartmentController extends AbstractActionController {
     $this->getDepartmentTable ()->deleteDepartment ( $deptCode );
    }
    
-   // Redirect to list of albums
+   // Redirect to list of departments
    return $this->redirect ()->toRoute ( 'department' );
   }
   

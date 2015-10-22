@@ -31,7 +31,7 @@ class StudentController extends AbstractActionController {
    if ($form->isValid ()) {
     $student->exchangeArray ( $form->getData () );
     $this->getStudentTable ()->addStudent ( $student );
-    // Redirect to list of departments
+    // Redirect to list of students
     return $this->redirect ()->toRoute ( 'student' );
    }
   }
@@ -43,7 +43,7 @@ class StudentController extends AbstractActionController {
  public function editAction() {
   $stuCode = $this->params ()->fromRoute ( 'id', 0 );
   
-  // Get the Album with the specified id. An exception is thrown
+  // Get the Student with the specified id. An exception is thrown
   // if it cannot be found, in which case go to the index page.
   try {
    $student = $this->getStudentTable ()->getInstructor ( $stuCode );
@@ -62,7 +62,7 @@ class StudentController extends AbstractActionController {
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
     $this->getStudentTable ()->saveStudent ( $student );
-    // Redirect to list of albums
+    // Redirect to list of students
     return $this->redirect ()->toRoute ( 'student' );
    }
   }
@@ -90,7 +90,7 @@ class StudentController extends AbstractActionController {
     $this->getStudentTable ()->deleteStudent ( $stuCode );
    }
    
-   // Redirect to list of albums
+   // Redirect to list of students
    return $this->redirect ()->toRoute ( 'student' );
   }
   

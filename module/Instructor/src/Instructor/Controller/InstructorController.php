@@ -31,7 +31,7 @@ class InstructorController extends AbstractActionController {
    if ($form->isValid ()) {
     $instructor->exchangeArray ( $form->getData () );
     $this->getInstructorTable ()->addInstructor ( $instructor );
-    // Redirect to list of departments
+    // Redirect to list of instructors
     return $this->redirect ()->toRoute ( 'instructor' );
    }
   }
@@ -43,7 +43,7 @@ class InstructorController extends AbstractActionController {
  public function editAction() {
   $insSSN = $this->params ()->fromRoute ( 'id', 0 );
   
-  // Get the Album with the specified id. An exception is thrown
+  // Get the Instructor with the specified id. An exception is thrown
   // if it cannot be found, in which case go to the index page.
   try {
    $instructor = $this->getInstructorTable ()->getInstructor ( $insSSN );
@@ -62,7 +62,7 @@ class InstructorController extends AbstractActionController {
    $form->setData ( $request->getPost () );
    if ($form->isValid ()) {
     $this->getInstructorTable ()->saveInstructor ( $instructor );
-    // Redirect to list of albums
+    // Redirect to list of instructors
     return $this->redirect ()->toRoute ( 'instructor' );
    }
   }
@@ -90,7 +90,7 @@ class InstructorController extends AbstractActionController {
     $this->getInstructorTable ()->deleteInstructor ( $insSSN );
    }
    
-   // Redirect to list of albums
+   // Redirect to list of instructors
    return $this->redirect ()->toRoute ( 'instructor' );
   }
   
