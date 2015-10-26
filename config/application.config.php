@@ -8,6 +8,7 @@ return array(
         'Department',
         'Student',
         'Instructor',
+        'Subject',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
