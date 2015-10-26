@@ -14,7 +14,7 @@ $this->headTitle($title);
 		<th>Name</th>
 		<th>Birthdate</th>
 		<th>Sex</th>
-		<th>Dept Code</th>
+		<th>Department</th>
 		<th>&nbsp;</th>
 	</tr>
 <?php foreach ($instructors as $instructor) : ?>
@@ -23,7 +23,8 @@ $this->headTitle($title);
 		<td><?php echo $this->escapeHtml($instructor->insName);?></td>
 		<td><?php echo $this->escapeHtml($instructor->insBirthdate);?></td>
 		<td><?php echo $this->escapeHtml($instructor->insSex);?></td>
-		<td><?php echo $this->escapeHtml($instructor->deptCode);?></td>
+		<td><?php $deptName = $department_sv->getDepartment($instructor->deptCode)->deptName;
+		echo $this->escapeHtml($deptName);?></td>
 		<td><a
 			href="<?php
     

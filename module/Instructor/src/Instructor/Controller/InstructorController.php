@@ -15,7 +15,8 @@ class InstructorController extends AbstractActionController {
  public function indexAction() {
  
   return new ViewModel ( array (
-    'instructors' => $this->getInstructorTable ()->fetchAll() 
+    'instructors' => $this->getInstructorTable ()->fetchAll(),
+    'department_sv' => $this->getDepartmentTable()
   ) );
  }
  

@@ -5,7 +5,7 @@ namespace Student\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Student\Model\Student;
-use Student\Form\InstructorForm;
+use Student\Form\StudentForm;
 
 class StudentController extends AbstractActionController {
  protected $studentTable;
@@ -18,7 +18,7 @@ class StudentController extends AbstractActionController {
  }
  
  public function addAction() {
-  $form = new InstructorForm ();
+  $form = new StudentForm ();
   $form->get ( 'submit' )->setValue ( 'Add' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-primary' );
 
@@ -46,13 +46,13 @@ class StudentController extends AbstractActionController {
   // Get the Student with the specified id. An exception is thrown
   // if it cannot be found, in which case go to the index page.
   try {
-   $student = $this->getStudentTable ()->getInstructor ( $stuCode );
+   $student = $this->getStudentTable ()->getStudent ( $stuCode );
   } catch ( \Exception $ex ) {
    return $this->redirect ()->toRoute ( 'student', array (
      'action' => 'index' 
    ) );
   }
-  $form = new InstructorForm ();
+  $form = new StudentForm ();
   $form->bind ( $student );
   $form->get ( 'submit' )->setAttribute ( 'value', 'Save' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-success' );
@@ -96,7 +96,7 @@ class StudentController extends AbstractActionController {
   
   return array (
     'id' => $stuCode,
-    'student' => $this->getStudentTable ()->getInstructor ( $stuCode ) 
+    'student' => $this->getStudentTable ()->getStudent ( $stuCode ) 
   );
  }
  
