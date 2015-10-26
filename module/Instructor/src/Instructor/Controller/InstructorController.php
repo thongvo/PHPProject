@@ -6,9 +6,11 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Instructor\Model\Instructor;
 use Instructor\Form\InstructorForm;
+use Department\Model\Department;
 
 class InstructorController extends AbstractActionController {
  protected $instructorTable;
+ protected $departmentTable;
  
  public function indexAction() {
  
@@ -22,12 +24,26 @@ class InstructorController extends AbstractActionController {
   $form->get ( 'submit' )->setValue ( 'Add' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-primary' );
 
+  //Lay toan bo department tu DB.
+  $departments = $this->getDepartmentTable()->fetchAll();
+  $listoption =array();
+  
+  foreach ($departments as $item){
+   $listoption[$item->deptCode] = $item->deptName;
+  }
+  
+  $form->get ( 'deptCode' )->setOptions(array(
+    'value_options' => $listoption
+  ));
+  
   
   $request = $this->getRequest ();
   if ($request->isPost ()) {
    $instructor = new Instructor ();
    $form->setInputFilter ( $instructor->getInputFilter () );
    $form->setData ( $request->getPost () );
+   
+   
    if ($form->isValid ()) {
     $instructor->exchangeArray ( $form->getData () );
     $this->getInstructorTable ()->addInstructor ( $instructor );
@@ -56,6 +72,19 @@ class InstructorController extends AbstractActionController {
   $form->bind ( $instructor );
   $form->get ( 'submit' )->setAttribute ( 'value', 'Save' );
   $form->get ( 'submit' )->setAttribute ( 'class', 'btn btn-success' );
+  
+  //Lay toan bo department tu DB.
+  $departments = $this->getDepartmentTable()->fetchAll();
+  $listoption =array();
+  
+  foreach ($departments as $item){
+   $listoption[$item->deptCode] = $item->deptName;
+  }
+  
+  $form->get ( 'deptCode' )->setOptions(array(
+    'value_options' => $listoption
+  ));
+  
   $request = $this->getRequest ();
   if ($request->isPost ()) {
    $form->setInputFilter ( $instructor->getInputFilter () );
@@ -106,6 +135,14 @@ class InstructorController extends AbstractActionController {
    $this->instructorTable = $sm->get ( 'Instructor\Model\InstructorTable' );
   }
   return $this->instructorTable;
+ }
+ 
+ public function getDepartmentTable() {
+  if (! $this->departmentTable) {
+   $sm = $this->getServiceLocator ();
+   $this->departmentTable = $sm->get ( 'Department\Model\DepartmentTable' );
+  }
+  return $this->departmentTable;
  }
  
 }

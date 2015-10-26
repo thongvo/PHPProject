@@ -10,9 +10,9 @@ class InstructorForm extends Form {
   parent::__construct ( 'instructor' );
   $this->add ( array (
     'name' => 'deptCode',
-    'type' => 'Text',
+    'type' => 'Select',
     'options' => array (
-      'label' => 'Department Code' 
+      'label' => 'Department' 
     ),
     'attributes' => array(
       'class' => 'form-control'
