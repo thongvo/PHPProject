@@ -1,0 +1,48 @@
+<h1>Index</h1>
+<?php
+$title = 'My subjects';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+	<a href="<?php echo $this->url('subject', array('action'=>'add'));?>" class="btn btn-primary">
+	<span><i class="fa fa-plus-circle"></i></span> Add new subject</a>
+</p>
+<table class="table">
+	<tr>
+		<th>Subject Code</th>
+		<th>Subject Name</th>
+		<th>Subject Credits</th>
+		<th>Department</th>
+		<th>&nbsp;</th>
+	</tr>
+<?php foreach ($subjects as $subject) : ?>
+<tr>
+		<td><?php echo $this->escapeHtml($subject->subCode);?></td>
+		<td><?php echo $this->escapeHtml($subject->subName);?></td>
+		<td><?php echo $this->escapeHtml($subject->subCredit);?></td>
+		<td><?php
+		
+		  $deptName = $department_sv->getDepartment($subject->deptCode)->deptName;
+		
+		
+		echo $this->escapeHtml($deptName);?></td>
+		<td><a
+			href="<?php
+    
+echo $this->url('subject', array(
+        'action' => 'edit',
+        'id' => $subject->subCode
+    ));
+    ?>" class="btn btn-info"><span><i class="fa fa-edit"></i></span> Edit</a> <a
+			href="<?php
+    
+echo $this->url('subject', array(
+        'action' => 'delete',
+        'id' => $subject->subCode
+    ));
+    ?>" class="btn btn-danger"><span><i class="fa fa-minus-circle"></i></span> Delete</a></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+

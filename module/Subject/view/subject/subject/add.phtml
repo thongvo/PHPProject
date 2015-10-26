@@ -1,0 +1,31 @@
+<h1>Add</h1>
+<?php
+$title = 'Add new subject';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+       
+<?php
+$form->setAttribute('action', $this->url('subject', array('action' => 'add')));
+$form->prepare();
+echo $this->form()->openTag($form);
+//echo $this->formHidden($form->get('id'));
+// $form->get('deptCode')->setAttribute('placeholder','Code of the department...');
+// $form->get('deptName')->setAttribute('placeholder','Name of the department...');
+// $form->get('deptOffice')->setAttribute('placeholder','Office of the department...');
+// $form->get('deptPhone')->setAttribute('placeholder','Phone of the department...');
+echo $this->formRow($form->get('subCode')) . "<br>";
+echo $this->formRow($form->get('subName')) . "<br>";
+echo $this->formRow($form->get('subCredit')) . "<br>";
+echo $this->formRow($form->get('deptCode')) . "<br>";
+echo "<button type=\"submit\" class=\"btn btn-primary\"><span><i class=\"fa fa-plus\"></i></span> Add</button>";
+
+echo $this->form()->closeTag();
+?>
+
+<script type="text/javascript">
+
+
+
+</script>
