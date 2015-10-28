@@ -65,10 +65,10 @@ echo $this->headScript ()->prependFile ( $this->basePath () . '/js/bootstrap.min
 // 						 $url = $this->url('department');
 						 echo "<li><span><i class=\"fa fa-tasks fa-lg\"></i> Manage</span>
 						           <ul>
-						              <li><a href='department'><i class=\"fa fa-institution fa-lg\"></i> Departments</a></li>
-						              <li><a href='student'><i class=\"fa fa-graduation-cap fa-lg\"></i> Students</a></li>
-                                      <li><a href='instructor'><i class=\"fa fa-group fa-lg\"></i>  Instructors</a></li>
-                                      <li><a href='subject'><i class=\"fa fa-book fa-lg\"></i>  Subjects</a></li>
+						              <li><a href=\"" . $this->url('department') . "\"><i class=\"fa fa-institution fa-lg\"></i> Departments</a></li>
+						              <li><a href=\"" . $this->url('student') . "\"><i class=\"fa fa-graduation-cap fa-lg\"></i> Students</a></li>
+                                      <li><a href=\"" . $this->url('instructor') . "\"><i class=\"fa fa-group fa-lg\"></i>  Instructors</a></li>
+                                      <li><a href=\"" . $this->url('subject') . "\"><i class=\"fa fa-book fa-lg\"></i>  Subjects</a></li>
 						           </ul>
 						       </li>";
 						}
