@@ -14,19 +14,19 @@ class StudentForm extends Form {
     'options' => array (
       'label' => 'Student Code' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'stuSSN',
     'type' => 'Text',
     'options' => array (
-      'label' => 'Student Social Number'
+      'label' => 'Student Social Number' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'stuName',
@@ -34,39 +34,42 @@ class StudentForm extends Form {
     'options' => array (
       'label' => 'Student Name' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'stuBirthdate',
     'type' => 'Text',
     'options' => array (
-      'label' => 'Student day of birth'
+      'label' => 'Student day of birth' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
+    'type' => 'radio',
     'name' => 'stuSex',
-    'type' => 'Text',
     'options' => array (
-      'label' => 'Student Sex'
+      'value_options' => array (
+        'Male' => 'Male',
+        'Female' => 'Female' 
+      ) 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'style' => 'margin-left:10px;' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'stuAddress',
     'type' => 'Text',
     'options' => array (
-      'label' => 'Student Address'
+      'label' => 'Student Address' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'submit',
@@ -74,7 +77,7 @@ class StudentForm extends Form {
     'attributes' => array (
       'value' => 'Go',
       'id' => 'submitbutton',
-      'class' => 'btn btn-default'
+      'class' => 'btn btn-default' 
     ) 
   ) );
  }

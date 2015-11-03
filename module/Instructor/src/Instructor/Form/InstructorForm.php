@@ -14,19 +14,19 @@ class InstructorForm extends Form {
     'options' => array (
       'label' => 'Department' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'insSSN',
     'type' => 'Text',
     'options' => array (
-      'label' => 'Instructor Social Number'
+      'label' => 'Instructor Social Number' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'insName',
@@ -34,29 +34,32 @@ class InstructorForm extends Form {
     'options' => array (
       'label' => 'Instructor Name' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
     'name' => 'insBirthdate',
     'type' => 'Text',
     'options' => array (
-      'label' => 'Instructor day of birth'
+      'label' => 'Instructor day of birth' 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'class' => 'form-control' 
+    ) 
   ) );
   $this->add ( array (
+    'type' => 'radio',
     'name' => 'insSex',
-    'type' => 'Text',
     'options' => array (
-      'label' => 'Instructor Sex'
+      'value_options' => array (
+        'Male' => 'Male',
+        'Female' => 'Female' 
+      ) 
     ),
-    'attributes' => array(
-      'class' => 'form-control'
-    ),
+    'attributes' => array (
+      'style' => 'margin-left:10px;'
+    )
   ) );
   $this->add ( array (
     'name' => 'submit',
@@ -64,7 +67,7 @@ class InstructorForm extends Form {
     'attributes' => array (
       'value' => 'Go',
       'id' => 'submitbutton',
-      'class' => 'btn btn-default'
+      'class' => 'btn btn-default' 
     ) 
   ) );
  }
